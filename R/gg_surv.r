@@ -199,15 +199,15 @@ gg_surv = function(km_fit, plot_name = 'km_plot.png', include_table = T, time_un
 
 ## test out the function 
 
-library(survival)
-data(mgus2)
+# library(survival)
+# data(mgus2)
 
-km_fit = survfit(Surv(futime, event = death) ~ strata(sex), data = mgus2)
-km_fit2 = survfit(Surv(futime, event = death) ~ 1, data = mgus2)
+# km_fit = survfit(Surv(futime, event = death) ~ strata(sex), data = mgus2)
+# km_fit2 = survfit(Surv(futime, event = death) ~ 1, data = mgus2)
 
-setwd('~')
+# setwd('~')
 
-single_plot_results = gg_surv(km_fit2, plot_name = 'single_strata_plot.png', table_plot_height = 4500)
-strata_results = gg_surv(km_fit, plot_name = 'strata_plot.png', plot_title = 'Kaplan-Meier Plot for Time To Death\nMonoclonal gammapothy data')
+# single_plot_results = gg_surv(km_fit2, plot_name = 'single_strata_plot.png', table_plot_height = 4500)
+# strata_results = gg_surv(km_fit, plot_name = 'strata_plot.png', plot_title = 'Kaplan-Meier Plot for Time To Death\nMonoclonal gammapothy data')
 
 
