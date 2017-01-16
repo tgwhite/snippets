@@ -137,7 +137,7 @@ gg_surv = function(km_fit, plot_name = 'km_plot.png', include_table = T, time_un
 	theme(
 		legend.position = 'bottom'
 		) +
-	scale_x_continuous(breaks = x_seq) +
+	scale_x_continuous(breaks = x_seq, limits = c(x_min, x_max)) +
 	scale_y_continuous(labels = percent) +
 	scale_linetype(name = '') +
 	scale_colour_hue(name = '') +
@@ -151,7 +151,7 @@ gg_surv = function(km_fit, plot_name = 'km_plot.png', include_table = T, time_un
 	table_plot = table_plot_base + 
 	facet_wrap(~variable_pretty, ncol = 1) +
 	geom_text(aes(x = x_time, y = strata, label = comma(value))) +
-	scale_x_continuous(limits = c(x_min, x_max)) +
+	scale_x_continuous(limits = c(x_min, x_max), breaks = x_seq) +
 	scale_colour_hue(guide = F) +
 	theme(
 		axis.ticks = element_blank(),
