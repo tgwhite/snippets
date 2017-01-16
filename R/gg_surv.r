@@ -1,12 +1,4 @@
 
-# id age sex  hgb creat mspike ptime pstat futime death
-# 1  1  88   F 13.1   1.3    0.5    30     0     30     1
-# 2  2  78   F 11.5   1.2    2.0    25     0     25     1
-# 3  3  94   M 10.5   1.5    2.6    46     0     46     1
-# 4  4  68   M 15.2   1.2    1.2    92     0     92     1
-# 5  5  90   F 10.7   0.8    1.0     8     0      8     1
-# 6  6  90   M 12.9   1.0    0.5     4     0      4     1
-
 
 gg_surv = function(km_fit, plot_name = 'km_plot.png', include_table = T, time_unit = 'days', plot_title = '', sub_title = '', break_width = 100, x_min = 0, x_max = NULL, table_plot_width = 3200, table_plot_height = 4500) {
 
@@ -30,9 +22,7 @@ gg_surv = function(km_fit, plot_name = 'km_plot.png', include_table = T, time_un
 		strata = as.character(NA),
 		cum_event = as.numeric(NA),
 		cum_censor = as.numeric(NA)
-	)
-
-	x_min = 0
+	)	
 	
 	if (is.null(x_max)) {
 		x_max = max(km_data$time)		
