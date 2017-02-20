@@ -43,34 +43,16 @@ growth_predictions = sapply(2017:2020, function(the_year){
 overall_prob_growth_greater_35 = prod(growth_predictions)
 
 
-## Simple output: 
+#### Simple output ####
+
+### Overall distribution of economic growth across the OECD since 1970 ### 
+
 # > summary(oecd_growth$gdp_growth)
 #    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 # -14.720   1.344   2.898   2.895   4.351  26.280     160 
 
-# > cat(percent(growth_predictions), '\n')
-# 18.20% 17.53% 16.87% 16.24% 
+### Mean and median economic growth in the OECD, by decade ### 
 
-# > cat(percent(overall_prob_growth_greater_35), '\n')
-# 0.0874% 
-
-# > filter(oecd_growth, country == 'United States' & growth_35) %>% arrange(-year)
-#    iso2c       country gdp_growth year iso3c        region         capital longitude latitude            income        lending growth_over_3 growth_35
-# 1     US United States   3.785743 2004   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 2     US United States   4.092176 2000   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 3     US United States   4.685200 1999   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 4     US United States   4.449911 1998   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 5     US United States   4.487026 1997   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 6     US United States   3.795881 1996   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 7     US United States   4.037643 1994   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-# 8     US United States   3.555396 1992   USA North America Washington D.C.   -77.032  38.8895 High income: OECD Not classified          TRUE      TRUE
-
-# > group_by(oecd_growth, decade) %>%
-# + summarize(
-# + mean_growth = mean(gdp_growth, na.rm = T),
-# + median_growth = median(gdp_growth, na.rm = T)
-# + )
-# # A tibble: 5 × 3
 #   decade mean_growth median_growth
 #    <chr>       <dbl>         <dbl>
 # 1 1970's    4.270868      4.167882
@@ -79,13 +61,8 @@ overall_prob_growth_greater_35 = prod(growth_predictions)
 # 4 2000's    2.456082      2.824718
 # 5 2010's    1.731579      1.763026
 
-# > filter(oecd_growth, country == 'United States') %>%
-# + group_by(decade) %>%
-# + summarize(
-# + mean_growth = mean(gdp_growth, na.rm = T),
-# + median_growth = median(gdp_growth, na.rm = T)
-# + )
-# # A tibble: 5 × 3
+### Mean and median economic growth in the U.S., by decade ### 
+
 #   decade mean_growth median_growth
 #    <chr>       <dbl>         <dbl>
 # 1 1970's    3.542590      3.952037
@@ -93,3 +70,14 @@ overall_prob_growth_greater_35 = prod(growth_predictions)
 # 3 1990's    3.232118      3.675639
 # 4 2000's    1.817007      2.226377
 # 5 2010's    2.166891      2.297244
+
+### Simple estimates of the probability of the U.S. achieving 3.5% growth or greater for each year between 2017 and 2020 ### 
+
+# > cat(percent(growth_predictions), '\n')
+# 18.20% 17.53% 16.87% 16.24% 
+
+### Overall probability of achieving 3.5% growth in every year from 2017 to 2020 ### 
+
+# > cat(percent(overall_prob_growth_greater_35), '\n')
+# 0.0874% 
+
